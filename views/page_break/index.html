@@ -1,0 +1,46 @@
+{{extend 'layout.html'}}
+
+{{for i in range(0,21):}}
+
+{{
+pageBreakFlag=0;
+if i< 4:
+	pageBreakFlag=0
+elif i%4==0:
+	pageBreakFlag=1
+pass
+}}
+
+
+{{if pageBreakFlag==0:}}
+	{{if i==0:}}
+    <table width="900" style="border: solid 1px #C4C4C4">
+        <tr style="border-bottom:solid; border-bottom-color:#999">
+            <td align="center">Heading First page</td>
+        </tr>
+    </table>
+    
+    {{pass}}
+{{elif pageBreakFlag==1:}}
+	<br/>
+	<table width="900" style="border: solid 1px #C4C4C4">
+        <tr style="border-bottom:solid; border-bottom-color:#999">
+            <td align="center">Signature</td>
+        </tr>
+    </table> 
+    <br/>
+	<div style="page-break-before:always"></div>
+    <table width="900" style="border: solid 1px #C4C4C4">
+        <tr style="border-bottom:solid; border-bottom-color:#999">
+            <td align="center">Heading </td>
+        </tr>
+    </table>
+{{pass}}
+
+<table width="900" style="border: solid 1px #C4C4C4">
+    <tr style="border-bottom:solid; border-bottom-color:#999">
+    	<td align="center">record:{{=i}}</td>
+    </tr>
+</table>
+
+{{pass}}
